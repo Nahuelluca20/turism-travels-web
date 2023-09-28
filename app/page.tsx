@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import TravelCard from "@/components/TravelCard";
+
 import prisma from "../lib/prisma";
 
 async function getData() {
@@ -25,9 +27,16 @@ export default async function Home() {
   console.log(data);
 
   return (
-    <main className="min-h-screen justify-between py-10 px-28">
-      <span className="text-lg w-full py-2 text-gray-400">Feed</span>
-      <h1 className="text-3xl w-full mt-12 text-white">Public Feed</h1>
+    <main className="max-w-[800px] w-full justify-center text-center mx-auto py-2">
+      <h1 className="text-5xl w-full mt-12 text-white">Travels Feed</h1>
+      <span className="text-lg w-full py-2 text-gray-400">Feed for your favorites travels</span>
+      <section className="mt-10">
+        <TravelCard
+          author={data.props?.author?.name ?? ""}
+          content={data.props?.content ?? ""}
+          title={data.props?.title ?? ""}
+        />
+      </section>
     </main>
   );
 }
