@@ -4,24 +4,14 @@ import Link from "next/link";
 import TravelSvg from "@/assets/travel-icon.svg";
 import ArrowlSvg from "@/assets/arrow-left.svg";
 
-const NavLink = ({
-  alt,
-  img,
-  route,
-  text,
-}: {
-  alt: string;
-  img: string;
-  route: string;
-  text: string;
-}) => {
+function NavLink({alt, img, route, text}: {alt: string; img: string; route: string; text: string}) {
   return (
     <Link className="flex gap-0 items-center" href={route}>
       <Image alt={alt} height={20} src={img} width={20} />
       {text}
     </Link>
   );
-};
+}
 
 function Navbar() {
   return (
