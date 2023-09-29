@@ -24,8 +24,6 @@ async function getData() {
 export default async function Home() {
   const data = await getData();
 
-  console.log(data);
-
   return (
     <main className="max-w-[800px] w-full justify-center text-center mx-auto py-2">
       <h1 className="text-5xl w-full mt-12 text-white">Travels Feed</h1>
