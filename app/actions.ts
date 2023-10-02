@@ -27,6 +27,7 @@ export async function createTravel(prevState: any, formData: FormData) {
     });
 
     revalidatePath("/");
+    revalidatePath("/travels");
 
     return {message: `Added travel ${data.title}`};
   } catch (error) {

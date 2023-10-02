@@ -19,7 +19,6 @@ async function getData() {
 }
 
 export default async function page() {
-  revalidatePath("/travels");
   const data = await getData();
 
   return (
