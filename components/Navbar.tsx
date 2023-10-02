@@ -15,7 +15,7 @@ function NavLink({alt, img, route, text}: {alt: string; img: string; route: stri
 
 function Navbar() {
   return (
-    <header className="py-4 sticky text-white top-0 bg-slate-700 shadow-lg">
+    <header className="py-4 px-5 xl:px-0 sticky text-white top-0 bg-slate-700 shadow-lg">
       <nav className="flex w-full max-w-[1300px] mx-auto justify-between">
         <Link className="flex items-center gap-0 font-bold" href={"/"}>
           <Image alt="logo" height={30} src={TravelSvg} width={30} />
