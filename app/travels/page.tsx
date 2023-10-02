@@ -19,9 +19,8 @@ async function getData() {
 }
 
 export default async function page() {
-  const data = await getData();
-
   revalidatePath("/travels");
+  const data = await getData();
 
   return (
     <main className="max-w-[800px] px-5 lg:px-0 w-full justify-center text-center mx-auto pt-2 pb-10">
