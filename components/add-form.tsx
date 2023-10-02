@@ -31,7 +31,6 @@ export default function AddForm() {
       <SubmitButton />
       <p aria-live="polite" className="" role="status">
         {state?.message}
-        {console.log(state)}
       </p>
     </form>
   );
