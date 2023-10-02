@@ -1,6 +1,6 @@
-// "use client";
+"use client";
 import Link from "next/link";
-import {Suspense} from "react";
+import {Suspense, useEffect, useState} from "react";
 
 import TravelCard from "@/components/travel-card";
 
@@ -8,20 +8,20 @@ import {getData} from "../actions";
 
 import Loading from "./loading";
 
-export default async function Page() {
-  // const [travels, setTravels] = useState<any>();
+export default function Page() {
+  const [travels, setTravels] = useState<any>();
 
   async function getTravels() {
     const data = await getData();
 
-    // await setTravels(data);
+    await setTravels(data);
+
     return data;
   }
 
-  const travels = await getTravels();
-  // useEffect(() => {
-  //   getTravels();
-  // }, []);
+  useEffect(() => {
+    getTravels();
+  }, []);
 
   return (
     <main className="max-w-[800px] px-5 lg:px-0 w-full justify-center text-center mx-auto pt-2 pb-10">
