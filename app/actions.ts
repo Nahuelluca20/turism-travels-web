@@ -5,6 +5,37 @@ import {NextResponse} from "next/server";
 
 import prisma from "@/lib/prisma";
 
+export async function getData() {
+  const post = await prisma.post.findMany({
+    include: {
+      author: {
+        select: {name: true},
+      },
+    },
+  });
+
+  return {
+    props: post,
+  };
+}
+
+export async function getTravelById(travelId: string) {
+  const post = await prisma.post.findUnique({
+    where: {
+      id: travelId,
+    },
+    include: {
+      author: {
+        select: {name: true},
+      },
+    },
+  });
+
+  return {
+    props: post,
+  };
+}
+
 export async function createTravel(prevState: any, formData: FormData) {
   const schema = z.object({
     title: z.string().nonempty(),

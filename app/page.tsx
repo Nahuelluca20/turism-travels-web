@@ -3,19 +3,8 @@ import Link from "next/link";
 import AddForm from "@/components/add-form";
 import TravelCard from "@/components/travel-card";
 import prisma from "@/lib/prisma";
-async function getData() {
-  const post = await prisma.post.findMany({
-    include: {
-      author: {
-        select: {name: true},
-      },
-    },
-  });
 
-  return {
-    props: post,
-  };
-}
+import {getData} from "./actions";
 
 export default async function Home() {
   const data = await getData();

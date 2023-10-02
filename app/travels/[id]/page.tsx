@@ -1,27 +1,10 @@
 import Image from "next/image";
 
-import prisma from "@/lib/prisma";
 import PaisajeImg from "@/assets/paisaje.jpg";
-
-async function getData(travelId: string) {
-  const post = await prisma.post.findUnique({
-    where: {
-      id: travelId,
-    },
-    include: {
-      author: {
-        select: {name: true},
-      },
-    },
-  });
-
-  return {
-    props: post,
-  };
-}
+import {getTravelById} from "@/app/actions";
 
 export default async function TravelByIdPage({params}: {params: {id: string}}) {
-  const data = await getData(params.id);
+  const data = await getTravelById(params.id);
 
   return (
     <main className="max-w-[800px] text-white w-full justify-center text-center mx-auto py-2">
