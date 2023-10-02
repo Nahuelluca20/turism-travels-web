@@ -1,4 +1,5 @@
 import Link from "next/link";
+import {revalidatePath} from "next/cache";
 
 import TravelCard from "@/components/travel-card";
 import prisma from "@/lib/prisma";
@@ -19,6 +20,8 @@ async function getData() {
 
 export default async function page() {
   const data = await getData();
+
+  revalidatePath("/travels");
 
   return (
     <main className="max-w-[800px] px-5 lg:px-0 w-full justify-center text-center mx-auto pt-2 pb-10">
