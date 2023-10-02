@@ -5,6 +5,9 @@ import TravelCard from "@/components/travel-card";
 import prisma from "@/lib/prisma";
 
 async function getData() {
+  revalidatePath("/travels");
+  revalidatePath("/");
+
   const post = await prisma.post.findMany({
     include: {
       author: {

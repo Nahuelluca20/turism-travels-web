@@ -26,7 +26,7 @@ export default async function Home() {
       <span className="text-lg w-full py-2 text-gray-400">Post here your favorites travels</span>
       <section className="mt-10">
         <AddForm />
-        <section className="mt-10 grid gap-6">
+        <section className="mt-10 grid gap-6 px-5 lg:px-0 ">
           {data &&
             data?.props.map((post) => (
               <Link key={post.id} href={`/travels/${post.id}`}>
