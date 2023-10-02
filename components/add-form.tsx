@@ -1,7 +1,9 @@
 "use client";
-
+// @ts-expect-error
 import {experimental_useFormState as useFormState} from "react-dom";
 import {experimental_useFormStatus as useFormStatus} from "react-dom";
+
+import {createTravel} from "@/app/actions";
 
 const initialState = {
   title: "",
@@ -22,13 +24,14 @@ export default function AddForm() {
   const [state, formAction] = useFormState(createTravel, initialState);
 
   return (
-    <form action={formAction}>
-      <label htmlFor="travel">Enter Travel</label>
-      <input id="travel" name="title" type="text" />
-      <input id="travel" name="content" type="text" />
+    <form action={formAction} className="grid gap-2 max-w-[500px] mx-auto">
+      <label htmlFor="title">Enter Travel</label>
+      <input required id="title" name="title" type="text" />
+      <input required id="content" name="content" type="text" />
       <SubmitButton />
-      <p aria-live="polite" className="sr-only" role="status">
+      <p aria-live="polite" className="" role="status">
         {state?.message}
+        {console.log(state)}
       </p>
     </form>
   );

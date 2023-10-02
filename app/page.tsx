@@ -23,7 +23,9 @@ export default async function Home() {
     <main className="max-w-[800px] w-full justify-center text-center mx-auto py-2">
       <h1 className="text-5xl w-full mt-12 text-white">Post Travels</h1>
       <span className="text-lg w-full py-2 text-gray-400">Post here your favorites travels</span>
-      <section className="mt-10">{/* <AddForm /> */}</section>
+      <section className="mt-10">
+        <AddForm />
+      </section>
     </main>
   );
 }
