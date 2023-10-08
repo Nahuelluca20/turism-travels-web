@@ -2,7 +2,6 @@ import Link from "next/link";
 
 import AddForm from "@/components/add-form";
 import TravelCard from "@/components/travel-card";
-import prisma from "@/lib/prisma";
 
 import {getData} from "./actions";
 
